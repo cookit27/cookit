@@ -38,8 +38,6 @@ function MarkSentence() {
             return -1;
         if (a.index + a.length > b.index + b.length)
             return 1;
-       // if (a.length > b.length)
-         //   return -1
 
         return 0;
     }
@@ -48,7 +46,7 @@ function MarkSentence() {
     this.findObjectsInSentence = function(sentence, myList){
         var indexListToReturn = [];
 
-        // Pass through the list of objects to search in the sntence
+        // Pass through the list of objects to search in the sentence
         for (var i = 0; i < myList.length; i++){
             // Split the current object in the list to an array of worlds
             var wordsToSearch = myList[i].split(/[ -]+/);

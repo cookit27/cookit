@@ -20,7 +20,8 @@ function Connectorlist() {
     "balsamic vinegar", "honey", "squash", "red onion", "red bell pepper", "red wine vinegar",
         "dijon mustard", "walnut", "radish", "mozzarella cheese"];
 
-     this.foodGroupTagList =  ["gluten", "gluten free", "dairy", "nuts", "vegetarian", "vegan", "meat", "fat", "protein", "fruits"];
+     this.foodGroupTagList =  ["gluten", "gluten free", "dairy", "nuts", "vegetarian",
+                               "vegan", "meat", "fat", "protein", "fruits"];
 
 // TODO: OR words - complete after the second task
 
