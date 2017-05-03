@@ -24,9 +24,6 @@ function Connectorlist() {
 
 // TODO: OR words - complete after the second task
 
-// TODO: if there is enough time - add words like vegetarian which means - search //without meat
-
-// TODO: deal with words connectors that comes after the noun like "gluten free"
 };
 
 

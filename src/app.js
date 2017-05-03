@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var Connectorlist = require('./shared/definition/definition');
 var MarkSentence = require('./buildAlg/markSentence');
+var StatementBuilder = require('./buildAlg/statementBuilder');
  
 var app = express();
 var port = process.env.PORT || 1337;
@@ -9,19 +10,18 @@ var port = process.env.PORT || 1337;
 var con = new Connectorlist();
 
 var markSen = new MarkSentence();
-/*var split = markSen.splitSentence("hi my name is roni");
+var stateBuilder = new StatementBuilder();
+var sentence = "i want cake with mozzarella cheese and red bell pepper sugar and nuts without egg and Parmesan Cheese with mozzarella cheese"
 
-for (var i=0; i<split.length; i++){
-  console.log(i + " " + split[i]);
-}*/
-
-markSen.markSentence("i want cake with mozzarella cheese and red bell pepper sugar and nuts without egg and Parmesan Cheese with mozzarella cheese");
-console.log("include words:");
+markSen.markSentence(sentence);
 
 for (var i=0; i<markSen.ingredientIndexList.length; i++){
     console.log( markSen.ingredientIndexList[i].index + " and length : " + markSen.ingredientIndexList[i].length);
 }
- 
+
+var splitedSentence = markSen.splitSentence(sentence)
+stateBuilder.createStatement(splitedSentence, markSen.foodGroupTagIndexList, markSen.ingredientIndexList);
+
 // body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
  
