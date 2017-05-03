@@ -14,19 +14,20 @@ StatementBuilder = function() {
 
             // Take all the marked tags and add them to the statement
             for (var tagIndex = 0; tagIndex < foodGroupTagIndexList.length; tagIndex++) {
-
-
                 // Check if needs to add NOT
                 if (this.isExcluded) { // TODO: check if exclude
                     statement += "NOT ";
                 }
 
-                statement += "tags.Tag_Title = ‘";
+                statement += "tags.Tag_Title = '";
 
                 // In case the tag phrase is more than 1 word, concatenating them all
 
                 for (var tagLength = 0; tagLength < foodGroupTagIndexList[tagIndex].length; tagLength++) {
-                    statement += " " + sentence[foodGroupTagIndexList[tagIndex].index + tagLength];
+                    if (tagLength > 0)
+                        statement += " ";
+
+                    statement += sentence[foodGroupTagIndexList[tagIndex].index + tagLength];
                 }
 
                 statement += "'";
@@ -53,12 +54,15 @@ StatementBuilder = function() {
                     statement += "NOT ";
                 }
 
-                statement += "ingredients.ingredients_Name = ‘";
+                statement += "ingredients.ingredients_Name = '";
 
                 // In case the ingredient phrase is more than 1 word, concatenating them all
 
                 for (var ingLength = 0; ingLength < ingredientIndexList[ingIndex].length; ingLength++) {
-                    statement += " " + sentence[ingredientIndexList[ingIndex].index + ingLength];
+                    if (ingLength > 0)
+                        statement += " ";
+
+                    statement += sentence[ingredientIndexList[ingIndex].index + ingLength];
                 }
 
                 statement += "'";
