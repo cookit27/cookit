@@ -7,7 +7,7 @@ function Connectorlist() {
 
     this.excludeList =  ["not", "no", "without", "does not contain", "doesn’t contain", "doesnt contain",
         "not include", "not includes", "exclude", "with no", "lacking", "don’t", "free", "doesn’t have",
-        "doesnt have", "doesConnectorlist not have", "and not", "and not include", "and without"],
+        "doesnt have", "does not have"],
 
 // TODO: actually take the ingridiants from the db
      this.ingredientsList = ["sugar", "flour", "milk", "apple",

@@ -38,8 +38,10 @@ function MarkSentence() {
             return -1;
         if (a.index > b.index)
             return 1;
+        if (a.length > b.length)
+            return -1
 
-        return 0;
+        return 1;
     }
 
 

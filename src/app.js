@@ -11,7 +11,7 @@ var con = new Connectorlist();
 
 var markSen = new MarkSentence();
 var stateBuilder = new StatementBuilder();
-var sentence = "i want cake with mozzarella cheese and red bell pepper sugar and nuts without egg and Parmesan Cheese with mozzarella cheese"
+var sentence = "i want cake with sugar,pepper, water and without lemon juice and does not contain butter";
 
 markSen.markSentence(sentence);
 
@@ -19,8 +19,8 @@ for (var i=0; i<markSen.ingredientIndexList.length; i++){
     console.log( markSen.ingredientIndexList[i].index + " and length : " + markSen.ingredientIndexList[i].length);
 }
 
-var splitedSentence = markSen.splitSentence(sentence)
-stateBuilder.createStatement(splitedSentence, markSen.foodGroupTagIndexList, markSen.ingredientIndexList);
+var splitedSentence = markSen.splitSentence(sentence);
+stateBuilder.createStatement(splitedSentence, markSen);
 
 // body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
