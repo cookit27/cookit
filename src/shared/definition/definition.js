@@ -2,7 +2,6 @@
  * Created by galra on 5/3/2017.
  */
 function Connectorlist() {
-
     this.includeList = ["and", "include", "includes", "included", "including", "has", "have",
         "having", "with", "in", "inside", "on", "contain", "contains", "containing", "have"];
 

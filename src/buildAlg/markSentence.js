@@ -7,11 +7,11 @@ function MarkSentence() {
 
     // data members
     this.conList = new Connectorlist();
-    this.sentencefoodGroupTagIndexList = [];
-    this.sentenceingredientIndexList = [];
-    this.sentenceincludeIndexList = [];
-    this.sentenceexcludeIndexList = [];
-    this.sentenceisExcluded = false;
+    this.foodGroupTagIndexList = [];
+    this.ingredientIndexList = [];
+    this.includeIndexList = [];
+    this.excludeIndexList = [];
+    this.isExcluded = false;
     this.isOr = false;
 
     this.splitSentence = function(sentence){
@@ -46,27 +46,26 @@ function MarkSentence() {
     this.findObjectsInSentence = function(sentence, myList){
         var indexListToReturn = [];
 
-        // Pass through the list
+        // Pass through the list of objects to search in the sntence
         for (var i = 0; i < myList.length; i++){
-
             // Split the current object in the list to an array of worlds
             var wordsToSearch = myList[i].split(/[ -]+/);
-            var index = sentence.search(wordsToSearch[0]);
-            var isWordsExist = (index != -1);
 
-            // Check if all the words exist in the sentence in a row
-            if (wordsToSearch.length > 1){
-                for (var k = 1; k < wordsToSearch.length; k++){
-                    if (myList[index + k] != wordsToSearch[k]){
+            // Search the object inside the sentence
+            for (var senIndex = 0; senIndex < sentence.length - wordsToSearch.length + 1; senIndex++) {
+                var isWordsExist = true;
+
+                // Check if all the words exist in the sentence in a row
+                for (var k = 0; k < wordsToSearch.length; k++) {
+                    if (sentence[senIndex + k] != wordsToSearch[k]) {
                         isWordsExist = false;
                     }
                 }
 
-            }
+                if (isWordsExist) {
+                    indexListToReturn.push({index: senIndex, length: wordsToSearch.length});
 
-            if (isWordsExist){
-                indexListToReturn.push({index: index, length: wordsToSearch.length});
-
+                }
             }
         }
 

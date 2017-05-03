@@ -7,7 +7,6 @@ var app = express();
 var port = process.env.PORT || 1337;
 
 var con = new Connectorlist();
-console.log(con.includeList[0]);
 
 var markSen = new MarkSentence();
 /*var split = markSen.splitSentence("hi my name is roni");
@@ -16,11 +15,11 @@ for (var i=0; i<split.length; i++){
   console.log(i + " " + split[i]);
 }*/
 
-markSen.markSentence("i want cake with sugar and nuts without egg");
+markSen.markSentence("i want cake with mozzarella cheese and red bell pepper sugar and nuts without egg and Parmesan Cheese with mozzarella cheese");
 console.log("include words:");
 
-for (var i=0; i<markSen.includeIndexList.length; i++){
-    console.log( markSen.includeIndexList[i].index);
+for (var i=0; i<markSen.ingredientIndexList.length; i++){
+    console.log( markSen.ingredientIndexList[i].index + " and length : " + markSen.ingredientIndexList[i].length);
 }
  
 // body parser middleware
