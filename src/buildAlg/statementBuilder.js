@@ -65,7 +65,7 @@ StatementBuilder = function() {
     }
 
     //***************************************
-    // Ingridient statement builder
+    // Ingredient statement builder
     //***************************************
     this.ingridientStatement = function(markedSentence, sentence) {
         var statement = "  INNER JOIN tbl_ingredients ingredients ON ";
@@ -106,7 +106,7 @@ StatementBuilder = function() {
     }
 
     this.isExcluded = function(wordIndex, includeIndexList, excludeIndexList){
-        console.log("word index : " + wordIndex);
+
         var includeIndex = this.findClosestIndex(wordIndex, includeIndexList);
         var excludeIndex = this.findClosestIndex(wordIndex, excludeIndexList);
 
@@ -123,10 +123,10 @@ StatementBuilder = function() {
         }
 
         if (!isExist){
-            return wordIndex + 1;
+            return -1;
         }
 
-        return i + list[i - 1].length - 1;
+        return list[i - 1].index + list[i - 1].length - 1;
     }
 
 }

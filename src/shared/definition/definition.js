@@ -15,7 +15,7 @@ function Connectorlist() {
         "spinach", "eggs", "almond", "asparagus", "cauliflower", "fresh basil",
         "olive oil", "canola oil", "salt", "garlic", "olive", "green onion",
     "mushroom", "lemon", "coconut", "soda", "banana", "garlic clove", "bread flour",
-        "cranberry", "pepper", "butter", "water", "lemon juice", "butter",
+        "cranberry", "pepper", "butter", "water", "lemon juice",
     "white flour", "zucchini", "eggplant", "dry yeast", "green bell pepper",
     "balsamic vinegar", "honey", "squash", "red onion", "red bell pepper", "red wine vinegar",
         "dijon mustard", "walnut", "radish", "mozzarella cheese"];

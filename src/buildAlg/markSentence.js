@@ -34,14 +34,14 @@ function MarkSentence() {
     }
 
     var compare = function(a,b) {
-        if (a.index < b.index)
+        if (a.index + a.length < b.index + b.length)
             return -1;
-        if (a.index > b.index)
+        if (a.index + a.length > b.index + b.length)
             return 1;
-        if (a.length > b.length)
-            return -1
+       // if (a.length > b.length)
+         //   return -1
 
-        return 1;
+        return 0;
     }
 
 

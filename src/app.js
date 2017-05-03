@@ -11,7 +11,7 @@ var con = new Connectorlist();
 
 var markSen = new MarkSentence();
 var stateBuilder = new StatementBuilder();
-var sentence = "i want cake with sugar,pepper, water and without lemon juice and does not contain butter";
+var sentence = "i want cake with sugar,pepper, water, butter and without lemon juice and does not contain milk";
 
 markSen.markSentence(sentence);
 
