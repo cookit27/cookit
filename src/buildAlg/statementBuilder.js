@@ -7,7 +7,7 @@ StatementBuilder = function() {
     // Main statement builder
     //***************************************
     this.createStatement = function(sentence, markedSentence) {
-        var statement = "SELECT recipes.Recipe_Title, recipes.Recipe_PrepTime, recipes.Recipe_Instructions " +
+            var statement = "SELECT recipes.Recipe_Title, recipes.Recipe_PrepTime, recipes.Recipe_Instructions , ingredientsSec.Ingredient_Name" +
                         "FROM tbl_Recipes recipes";
 
         if (markedSentence.foodGroupTagIndexList.length > 0) {
@@ -17,6 +17,12 @@ StatementBuilder = function() {
         if (markedSentence.ingredientIndexList.length > 0) {
             statement += this.ingridientStatement(markedSentence, sentence);
         }
+
+        statement += " INNER JOIN tbl_Recipe_to_Ingridient ingToRecSec " +
+                            "ON recipes.recipe_ID = ingToRecSec.recipe_id " +
+                     "INNER JOIN tbl_ingredients ingredientsSec " +
+                            "ON ingredientsSec.Ingredient_ID = ingToRecSec.Ingredient_ID";
+
 
         console.log(statement);
         return statement;
