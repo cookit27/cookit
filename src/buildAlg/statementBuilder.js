@@ -18,9 +18,9 @@ StatementBuilder = function() {
             statement += this.ingridientStatement(markedSentence, sentence);
         }
 
-        statement += " INNER JOIN tbl_Recipe_to_Ingridient ingToRecSec " +
+        statement += " INNER JOIN tbl_Recipe_to_Ingredient ingToRecSec " +
                             "ON recipes.recipe_ID = ingToRecSec.recipe_id " +
-                     "INNER JOIN tbl_ingredients ingredientsSec " +
+                     "INNER JOIN tbl_Ingredients ingredientsSec " +
                             "ON ingredientsSec.Ingredient_ID = ingToRecSec.Ingredient_ID";
 
 
@@ -32,12 +32,12 @@ StatementBuilder = function() {
     // Food group tag statement builder
     //***************************************
     this.tagStatement = function(markedSentence, sentence) {
-        var statement = "  INNER JOIN tbl_FoodGroupTag tags ON ";
+        var statement = "  INNER JOIN tbl_FoodGroups tags ON ";
 
         // Take all the marked tags and add them to the statement
         for (var tagIndex = 0; tagIndex < markedSentence.foodGroupTagIndexList.length; tagIndex++) {
 
-            statement += "tags.Tag_Title ";
+            statement += "tags.FoodGroup_Desc ";
 
             // Check if needs to add NOT
             if (this.isExcluded(markedSentence.foodGroupTagIndexList[tagIndex].index, markedSentence.includeIndexList, markedSentence.excludeIndexList)) {
@@ -63,9 +63,9 @@ StatementBuilder = function() {
 
         }
 
-        statement += " INNER JOIN tbl_Recipes_to_FoodGroupTag tagsToRec ON" +
+        statement += " INNER JOIN tbl_Recipe_to_FoodGroup tagsToRec ON" +
             " tags.Recipe_ID = recipes.Recipe_ID" +
-            " AND tags.tag_ID = tagsToRec.tag_ID";
+            " AND tags.FoodGroup_ID = tagsToRec.FoodGroup_ID";
 
         return statement;
     }
