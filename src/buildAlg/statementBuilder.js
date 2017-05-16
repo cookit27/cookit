@@ -19,7 +19,7 @@ StatementBuilder = function() {
         }
 
         statement += " INNER JOIN tbl_Recipe_to_Ingredient ingToRecSec " +
-                            "ON recipes.recipe_ID = ingToRecSec.recipe_id " +
+                            "ON recipes.Recipe_ID = ingToRecSec.Recipe_ID " +
                      "INNER JOIN tbl_Ingredients ingredientsSec " +
                             "ON ingredientsSec.Ingredient_ID = ingToRecSec.Ingredient_ID";
 
@@ -74,12 +74,12 @@ StatementBuilder = function() {
     // Ingredient statement builder
     //***************************************
     this.ingridientStatement = function(markedSentence, sentence) {
-        var statement = "  INNER JOIN tbl_ingredients ingredients ON ";
+        var statement = "  INNER JOIN tbl_Ingredients ingredients ON ";
 
         // Take all the marked tags and add them to the statement
         for (var ingIndex = 0; ingIndex < markedSentence.ingredientIndexList.length; ingIndex++) {
 
-            statement += "ingredients.ingredients_Name ";
+            statement += "ingredients.Ingredient_Name ";
 
             // Check if needs to add NOT
             if (this.isExcluded(markedSentence.ingredientIndexList[ingIndex].index, markedSentence.includeIndexList, markedSentence.excludeIndexList)) { // TODO: check if exclude
@@ -104,9 +104,9 @@ StatementBuilder = function() {
             }
         }
 
-        statement += " INNER JOIN tbl_Recipe_to_Ingridient ingToRec "+
-                     "ON ingredients.ingredient_ID = ingToRec.ingredient_ID " +
-                     "AND recipes.recipe_ID = ingToRec.recipe_id";
+        statement += " INNER JOIN tbl_Recipe_to_Ingredient ingToRec "+
+                     "ON ingredients.Ingredient_ID = ingToRec.Ingredient_ID " +
+                     "AND recipes.Recipe_ID = ingToRec.Recipe_ID";
 
         return statement;
     }
